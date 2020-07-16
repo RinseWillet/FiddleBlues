@@ -22,6 +22,12 @@ public class polymorphFiddle {
 		System.out.println(zeta.getClass());
 		zeta.printInt();
 		
+		A joop = new B();
+		joop.printInt();
+		//C dirk = (C) joop; //classCastException (runtime)
+		A henk = (A) delta; //dit mag delta B is-a A en past dus in het kooitje van een A
+		//B frits = (B) alfa; //ClassCastException (runtime) : alfa A is niet per se een B
+		B iota = (B) zeta; //dit mag, object type van Zeta is B
 		
 		}
 
@@ -42,8 +48,12 @@ class A{
 	}
 	
 	void printInt() {
-		
-		System.out.println(a);
+		System.out.println("printInt in A");
+		System.out.println(a);		
+	}
+	
+	int test (int a) {
+		return a+15;
 	}
 			
 }
@@ -62,7 +72,20 @@ class B extends A{
 		System.out.println("constructor met integer in B");
 	}
 	
+	void printInt() {
+		System.out.println("printInt in B");
+		System.out.println(x);
+	}
+	
 	void printInts() {
 		System.out.println(a + " - " + x);
 	}
+	
+	
 }
+
+class C extends A {
+		
+	
+}
+
